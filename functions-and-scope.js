@@ -73,7 +73,7 @@ function average(gradesList) {
     total += grade;
   }
 
-  return total / gradesList.length
+  return total / gradesList.length;
 }
 
 console.log(average(grades));

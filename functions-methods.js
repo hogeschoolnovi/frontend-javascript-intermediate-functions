@@ -27,9 +27,9 @@ function typeOfEmail(email) {
   const domain = getEmailDomain(email);
 
   if (domain === 'novi-education.nl') {
-    return 'Student'
+    return 'Student';
   } else if (domain === 'novi.nl') {
-    return 'Medewerker'
+    return 'Medewerker';
   } else {
     return 'Extern';
   }
