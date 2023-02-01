@@ -76,14 +76,14 @@ number = 0
 
 function getEmailDomain() {
     for (address in emailAddress) {
+
         if (emailAddress[number].includes("@")) {
-            console.log("bevat een @")
-            if (emailAddress[number].includes(",")) {
-                console.log("bevat geen ,")
+            if (emailAddress[number] != ",") {
                 if (emailAddress[number].charAt(emailAddress[number].length-1) != "."){
                     console.log("True")
                 }
             }
+            
         }
         
         else {
