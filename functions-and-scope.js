@@ -50,8 +50,8 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143
-// averageGrade([6, 4, 5]) geeft xxxx
-// averageGrade([8, 9, 4, 6, 10]) geeft xxxx
+// averageGrade([6, 4, 5]) geeft 5
+// averageGrade([8, 9, 4, 6, 10]) geeft 7.4
 
 
 /* 2c: Afronden op twee decimalen */
