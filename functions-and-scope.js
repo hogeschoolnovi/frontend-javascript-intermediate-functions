@@ -15,7 +15,21 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 6
+console.log("Opdracht 1a")
+// Maak een variabele aan waarin je het aantal cum-laude geslaagden bijhoudt.
+// Loop door de lijst grades.
+// Controleer of ieder cijfer 8 of hoger is.
+// Verhoog het aantal cum-laude geslaagden met 1 als het cijfer 8 of hoger is.
+// Laat het aantal cum-laude geslaagden zien in de console.
 
+let numberOfCumLaude = 0
+
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] >= 8) {
+        numberOfCumLaude++
+    }
+}
+console.log(numberOfCumLaude)
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -26,9 +40,20 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude(grades) geeft 6
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
+    console.log("Opdracht 1b")
+    function cumLaude(grades) {
+        let numberOfCumLaude = 0
 
-
-
+        for (let i = 0; i < grades.length; i++) {
+            if (grades[i] >= 8) {
+                numberOfCumLaude++
+            }
+        }
+        return numberOfCumLaude
+    }
+    console.log(cumLaude(grades))
+    console.log( cumLaude([6,4,6]) )
+    console.log( cumLaude([8, 9, 4, 6, 10] ) )
 
 /* Opdracht  2: Gemiddeld cijfer */
 
@@ -41,7 +66,19 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 6.642857142857143
+console.log("Opdracht 2a")
 
+// 1. Maak een variabele aan om de som van de cijfers bij te houden.
+// 2. Loop met een for-loop door alle cijfers in grades.
+// 3. Tel ieder cijfer op bij de som.
+// 4. Deel de som door het aantal cijfers in grades.
+// 5. Log het gemiddelde in de console.
+
+let sumGrades = 0
+for (let i = 0; i < grades.length; i++) {
+    sumGrades += grades[i]
+    }
+console.log(sumGrades/grades.length)
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
@@ -52,12 +89,29 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // averageGrade(grades) geeft 6.642857142857143
 // averageGrade([6, 4, 5]) geeft 5
 // averageGrade([8, 9, 4, 6, 10]) geeft 7.4
+console.log("opdracht 2b")
+
+function averageGrade(grades){
+    let sumGrades = 0
+    for (let i = 0; i < grades.length; i++) {
+        sumGrades += grades[i]
+    }
+    return sumGrades/grades.length
+}
+
+console.log(averageGrade(grades))
+console.log(averageGrade([6, 4, 5]))
+console.log(averageGrade([8, 9, 4, 6, 10]))
 
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
+console.log("opdracht 2c")
 
+console.log(Math.round(averageGrade(grades) * 100) / 100);
+console.log(Math.round(averageGrade([6, 4, 5]) * 100) / 100);
+console.log(Math.round(averageGrade([8, 9, 4, 6, 10]) * 100) / 100);
 
 
 
@@ -71,14 +125,43 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 9
+    console.log("opdracht 3a");
+    // sla variabel hoogste cijfer op
+    // loop de array door
+    // controleer elke keer of het cijfer hoger is dan het opgeslagen cijfer.
+    // log dit hoogste cijfer in de terminal.
+
+    let highestGrade = 0
+
+    for (let i = 0; i < grades.length; i++) {
+        if (grades[i] > highestGrade) {
+            highestGrade = grades[i]
+             }
+        }
+    console.log(highestGrade)
 
 
-/* 3b: Omschrijven tot een herbruikbare functie */
-// Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
-// Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
-// Log het antwoord in de terminal.
+    /* 3b: Omschrijven tot een herbruikbare functie */
+    // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
+    // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
+    // Log het antwoord in de terminal.
 
-// ---- Verwachte uitkomsten:
-// highestGrade(grades) geeft 9
-// highestGrade([6, 4, 5]) geeft 6
-// highestGrade([8, 9, 4, 6, 10]) geeft 10
+    // ---- Verwachte uitkomsten:
+    // highestGrade(grades) geeft 9
+    // highestGrade([6, 4, 5]) geeft 6
+    // highestGrade([8, 9, 4, 6, 10]) geeft 10
+    console.log("Opdracht 3b")
+
+    function highestGrade1(grades){
+        let highestGrade = 0
+        for (let i = 0; i < grades.length; i++) {
+            if (grades[i] > highestGrade) {
+                highestGrade = grades[i]
+            }
+        }
+        return highestGrade
+    }
+
+    console.log(highestGrade1(grades))
+    console.log(highestGrade1([6, 4, 5]))
+    console.log(highestGrade1([8, 9, 4, 6, 10]))
