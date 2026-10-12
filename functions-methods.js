@@ -8,10 +8,13 @@
 // getEmailDomain("n.eeken@novi-education.nl") geeft novi-education.nl
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
-
-
-
-
+function getEmailDomain(email) {
+    const atPosition = email.indexOf("@");
+    return email.substring(atPosition + 1);
+}
+console.log("getEmailDomain:", getEmailDomain("n.eeken@novi-education.nl"));
+console.log("getEmailDomain:", getEmailDomain("t.mellink@novi.nl"));
+console.log("getEmailDomain:", getEmailDomain("a.wiersma@outlook.com"));
 /* Opdracht  2 */
 // Schrijf een functie genaamd typeOfEmail, die een emailadres verwacht. De functie checkt of het emailadres een novi domein heeft (medewerker), een novi-education domein (student), of extern domein (zoals gmail of outlook)
 // ---- Verwachte uitkomsten:
@@ -19,8 +22,22 @@
 // typeOfEmail("t.mellink@novi.nl") geeft geeft "Medewerker"
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
+function typeOfEmail(email) {
 
+    const domain = getEmailDomain(email);
 
+    if (domain === "novi.nl") {
+        return "Medewerker";
+    } else if (domain === "novi-education.nl") {
+        return "Student";
+    } else {
+        return "Extern";
+    }
+}
+console.log("typeOfEmail:", typeOfEmail("n.eeken@novi-education.nl"));
+console.log("typeOfEmail:", typeOfEmail("t.mellink@novi.nl"));
+console.log("typeOfEmail:", typeOfEmail("novi.nlaapjesk@outlook.com"));
+console.log("typeOfEmail:", typeOfEmail("a.wiersma@outlook.com"));
 
 /* Opdracht  3 */
 // Schrijf een functie genaamd checkEmailValidity, die een emailadres verwacht en checkt of het emailadres valide is. De functie returned true of false, afhankelijk van de uitkomst.
@@ -34,3 +51,15 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+function checkEmailValidity(email) {
+    const hasAt = email.includes("@");
+    const hasComma = email.includes(",");
+    const lastChar = email.charAt(email.length - 1);
+    const endsWithDot = lastChar === ".";
+    return hasAt && !hasComma && !endsWithDot;
+}
+console.log("checkEmailValidity:", checkEmailValidity("n.eeken@novi.nl"));
+console.log("checkEmailValidity:", checkEmailValidity("tessmellink@novi.nl"));
+console.log("checkEmailValidity:", checkEmailValidity("n.eekenanovi.nl"));
+console.log("checkEmailValidity:", checkEmailValidity("n.eeken@novinl."));
+console.log("checkEmailValidity:", checkEmailValidity("tessmellink@novi,nl"));
